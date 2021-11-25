@@ -27,14 +27,14 @@ namespace MRA
                 
                 taxPayer.Username = "issahthabit@gmail.com".ToString(); // username.Value;
 
-                IRestClient Rclient = new RestClient(); // "https://www.mra.mw/sandbox/programming/challenge/webservice/Taxpayers/delete");
+                IRestClient Rclient = new RestClient(); 
                 Uri baseUrl = new Uri("https://www.mra.mw");
 
                 RestRequest Rrequest = new RestRequest("post", Method.POST) { Credentials = new NetworkCredential("issahthabit@gmail.com", "password000122") };
 
 
                 Rclient.BaseUrl = baseUrl;
-                Rrequest.Resource = "/sandbox/programming/challenge/webservice/Taxpayers/add";
+                Rrequest.Resource = "/sandbox/programming/challenge/webservice/Taxpayers/delete";
 
 
                 Rrequest.Parameters.Clear();
