@@ -49,56 +49,35 @@ namespace MRA
 
             if (Page.IsValid)
             {
-                
-                    TaxPayer taxPayer = new TaxPayer();
-                    taxPayer.TPIN = tpin.Value.ToString();
-                    taxPayer.BusinessCertificateNumber = BusinessCertificateNumber.Value.ToString();
-                    taxPayer.TradingName = TradingName.Value.ToString();
-                    taxPayer.BusinessRegistrationDate = BusinessRegistrationDate.Value.ToString();
-                    taxPayer.MobileNumber = MobileNumber.Value.ToString();
-                    taxPayer.Email = Email.Value.ToString();
-                    taxPayer.PhysicalLocation = phyiscallocation.Value.ToString();
-                    taxPayer.Username = "issahthabit@gmail.com".ToString(); // username.Value;
+                TaxPayer taxPayer = new TaxPayer();
+                taxPayer.TPIN = tpin.Value.ToString();
+                taxPayer.BusinessCertificateNumber = BusinessCertificateNumber.Value.ToString();
+                taxPayer.TradingName = TradingName.Value.ToString();
+                taxPayer.BusinessRegistrationDate = BusinessRegistrationDate.Value.ToString();
+                taxPayer.MobileNumber = MobileNumber.Value.ToString();
+                taxPayer.Email = Email.Value.ToString();
+                taxPayer.PhysicalLocation = phyiscallocation.Value.ToString();
+                taxPayer.Username = username.Value;
 
-                    IRestClient Rclient = new RestClient(); // "https://www.mra.mw/sandbox/programming/challenge/webservice/Taxpayers/add");
-                    Uri baseUrl = new Uri("https://www.mra.mw");
+                IRestClient Rclient = new RestClient();
+                Uri baseUrl = new Uri("https://www.mra.mw");
+                RestRequest Rrequest = new RestRequest("post", Method.POST) { Credentials = new NetworkCredential(users, pwd) };
+                Rclient.BaseUrl = baseUrl;
+                Rrequest.Resource = "/sandbox/programming/challenge/webservice/Taxpayers/add";
+                Rrequest.Parameters.Clear();
+                Rrequest.AddHeader("Content-Type", "application/json; charset=utf-8");
+                Rrequest.AddHeader("candidateid", "issahthabit@gmail.com");
+                Rrequest.AddHeader("apikey", "3fdb48c5-336b-47f9-87e4-ae73b8036a1c");
+                Rrequest.AddJsonBody(taxPayer);
 
-                    RestRequest Rrequest = new RestRequest("post", Method.POST) { Credentials = new NetworkCredential(users, pwd) };
-
-                    
-                    Rclient.BaseUrl = baseUrl;
-                    Rrequest.Resource = "/sandbox/programming/challenge/webservice/Taxpayers/add";
-
-
-                    Rrequest.Parameters.Clear();
-
-                    Rrequest.AddHeader("Content-Type", "application/json; charset=utf-8");
-                    Rrequest.AddHeader("candidateid", "issahthabit@gmail.com");
-                    Rrequest.AddHeader("apikey", "3fdb48c5-336b-47f9-87e4-ae73b8036a1c");
-
-                    Rrequest.AddJsonBody(taxPayer);
-
-
-                    try
+                try
+                {
+                    IRestResponse<TaxPayer> Rresponse = Rclient.Execute<TaxPayer>(Rrequest);
+                    if (Rresponse.StatusCode == HttpStatusCode.OK)
                     {
-                        
-                        IRestResponse<TaxPayer> Rresponse = Rclient.Execute<TaxPayer>(Rrequest);
-                       
-                        if (Rresponse.StatusCode == HttpStatusCode.OK)
-                        {
-
-                        }
-                        else
-                        {
-
-                        }
-
                         string Result = Rresponse.Content;
-
-                        var data = JsonConvert.DeserializeObject<TaxPayer>(Result);
-
+                        //var data = JsonConvert.DeserializeObject<TaxPayer>(Result);
                         MSGLabel.Text = "Record has been saved successfully";
-
                         tpin.Value = string.Empty;
                         BusinessCertificateNumber.Value = string.Empty;
                         TradingName.Value = string.Empty;
@@ -107,13 +86,25 @@ namespace MRA
                         Email.Value = string.Empty;
                         phyiscallocation.Value = string.Empty;
                         username.Value = string.Empty;
-
-
                     }
-                    catch (Exception ex)
+                    else if(Rresponse.StatusCode == HttpStatusCode.Ambiguous)
                     {
-                        MSGLabel.Text = "Failed to create Record " + ex;
+                        MSGLabel.Text = "User Already Exists";
                     }
+                    else if(Rresponse.StatusCode==HttpStatusCode.BadRequest)
+                    {
+                        MSGLabel.Text = "Username doest not exists ";
+                    }
+                    else if(Rresponse.StatusCode==HttpStatusCode.InternalServerError)
+                    {
+                        MSGLabel.Text = "Internal Server Error!!!";
+                    }
+                    
+                }
+                catch (Exception ex)
+                {
+                    MSGLabel.Text = "Failed to create Record " + ex;
+                }
                 }
         }
     }
