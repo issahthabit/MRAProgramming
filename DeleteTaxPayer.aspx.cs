@@ -61,12 +61,8 @@ namespace MRA
                     }
                     else
                     {
-
+                        MSGLabel.Text = "Failed to Delete Record";
                     }
-
-                    
-
-
                 }
                 catch (Exception ex)
                 {
