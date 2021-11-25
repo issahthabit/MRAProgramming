@@ -40,28 +40,7 @@ namespace MRA
                 var logD = JsonConvert.DeserializeObject<LoginDetails>(result);
             }
         }
-        void Get_UserAuthentification()
-        {
-            User user = new User();
-            user.Password = Request.QueryString["password"];
-            user.Email = Request.QueryString["email"];
-
-            RestClient client = new RestClient(" https://www.mra.mw/sandbox/programming/challenge/webservice/auth/login");
-            RestRequest request = new RestRequest(Method.POST);
-
-            Response.Headers.Add("Accept", "application/json");
-            Response.Headers.Add("Content-type", "application/json");
-            Response.Headers.Add("candidateid", "issahthabit@gmail.com");
-            Response.Headers.Add("apikey", "3fdb48c5-336b-47f9-87e4-ae73b8036a1c");
-            request.AddJsonBody(user);
-
-            IRestResponse<List<String>> response = client.Execute<List<String>>(request);
-
-            string result = response.Content;
-
-            var logD = JsonConvert.DeserializeObject<LoginDetails>(result);
-
-        }
+        
         [Authorize]
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
@@ -84,7 +63,7 @@ namespace MRA
                     IRestClient Rclient = new RestClient(); // "https://www.mra.mw/sandbox/programming/challenge/webservice/Taxpayers/add");
                     Uri baseUrl = new Uri("https://www.mra.mw");
 
-                    RestRequest Rrequest = new RestRequest("post", Method.POST) { Credentials = new NetworkCredential("issahthabit@gmail.com", "password000122") };
+                    RestRequest Rrequest = new RestRequest("post", Method.POST) { Credentials = new NetworkCredential(users, pwd) };
 
                     
                     Rclient.BaseUrl = baseUrl;
