@@ -53,28 +53,18 @@ namespace MRA
 
                     if (Rresponse.StatusCode == HttpStatusCode.OK)
                     {
-                        
+                        string Result = Rresponse.Content;
 
+                    var data = JsonConvert.DeserializeObject<TaxPayer>(Result);
+
+                    MSGLabel.Text = "Record has been Deleted successfully";
                     }
                     else
                     {
 
                     }
 
-                    string Result = Rresponse.Content;
-
-                    var data = JsonConvert.DeserializeObject<TaxPayer>(Result);
-
-                    MSGLabel.Text = "Record has been Deleted successfully";
-
-                    //tpin.Value = string.Empty;
-                    BusinessCertificateNumber.Value = string.Empty;
-                    TradingName.Value = string.Empty;
-                    BusinessRegistrationDate.Value = string.Empty;
-                    MobileNumber.Value = string.Empty;
-                    Email.Value = string.Empty;
-                    phyiscallocation.Value = string.Empty;
-                    username.Value = string.Empty;
+                    
 
 
                 }
