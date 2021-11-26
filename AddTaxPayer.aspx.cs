@@ -77,7 +77,9 @@ namespace MRA
                     {
                         string Result = Rresponse.Content;
                         //var data = JsonConvert.DeserializeObject<TaxPayer>(Result);
+                        MSGLabel.ForeColor = System.Drawing.Color.Green;
                         MSGLabel.Text = "Record has been saved successfully";
+                        MSGLabel.ForeColor = System.Drawing.Color.Black;
                         tpin.Value = string.Empty;
                         BusinessCertificateNumber.Value = string.Empty;
                         TradingName.Value = string.Empty;
