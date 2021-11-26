@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "OU+lM2mzkCqes48gIh870BCfDSA4I/lvbRh28LXp55tFpYck27IPjerHnAyGYmSVBtroBxQ3ES03pae8a0pzhg==",
+  "success": true,
+  "projectFilePath": "D:\\MRAProgramming\\MRA1\\MRA1.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\ISSAH\\.nuget\\packages\\newtonsoft.json\\12.0.2\\newtonsoft.json.12.0.2.nupkg.sha512",
+    "C:\\Users\\ISSAH\\.nuget\\packages\\restsharp\\106.13.0\\restsharp.106.13.0.nupkg.sha512"
+  ],
+  "logs": []
+}

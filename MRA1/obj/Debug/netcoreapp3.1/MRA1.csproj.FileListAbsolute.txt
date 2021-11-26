@@ -1,0 +1,17 @@
+C:\Users\ISSAH\source\repos\MRA\MRA1\bin\Debug\netcoreapp3.1\MRA1.exe
+C:\Users\ISSAH\source\repos\MRA\MRA1\bin\Debug\netcoreapp3.1\MRA1.deps.json
+C:\Users\ISSAH\source\repos\MRA\MRA1\bin\Debug\netcoreapp3.1\MRA1.runtimeconfig.json
+C:\Users\ISSAH\source\repos\MRA\MRA1\bin\Debug\netcoreapp3.1\MRA1.runtimeconfig.dev.json
+C:\Users\ISSAH\source\repos\MRA\MRA1\bin\Debug\netcoreapp3.1\MRA1.dll
+C:\Users\ISSAH\source\repos\MRA\MRA1\bin\Debug\netcoreapp3.1\MRA1.pdb
+C:\Users\ISSAH\source\repos\MRA\MRA1\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\ISSAH\source\repos\MRA\MRA1\bin\Debug\netcoreapp3.1\RestSharp.dll
+C:\Users\ISSAH\source\repos\MRA\MRA1\obj\Debug\netcoreapp3.1\MRA1.csproj.AssemblyReference.cache
+C:\Users\ISSAH\source\repos\MRA\MRA1\obj\Debug\netcoreapp3.1\MRA1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ISSAH\source\repos\MRA\MRA1\obj\Debug\netcoreapp3.1\MRA1.AssemblyInfoInputs.cache
+C:\Users\ISSAH\source\repos\MRA\MRA1\obj\Debug\netcoreapp3.1\MRA1.AssemblyInfo.cs
+C:\Users\ISSAH\source\repos\MRA\MRA1\obj\Debug\netcoreapp3.1\MRA1.csproj.CoreCompileInputs.cache
+C:\Users\ISSAH\source\repos\MRA\MRA1\obj\Debug\netcoreapp3.1\MRA1.csproj.CopyComplete
+C:\Users\ISSAH\source\repos\MRA\MRA1\obj\Debug\netcoreapp3.1\MRA1.dll
+C:\Users\ISSAH\source\repos\MRA\MRA1\obj\Debug\netcoreapp3.1\MRA1.pdb
+C:\Users\ISSAH\source\repos\MRA\MRA1\obj\Debug\netcoreapp3.1\MRA1.genruntimeconfig.cache
