@@ -21,30 +21,28 @@ namespace MRA
         protected void btnLogout_Click(object sender, EventArgs e)
         {
 
-            FormsAuthentication.SignOut();
-            Response.Redirect("Signin.aspx", true);
-            //User user = new User();
-            //user.Email= Request.QueryString["email"];
+            string users = UserAuth.user, pwd = UserAuth.pass;
 
-            //RestClient client = new RestClient(" https://www.mra.mw/sandbox/programming/challenge/webservice/auth/logout");
-            //RestRequest request = new RestRequest(Method.POST);
+            TaxPayer taxPayer = new TaxPayer();
+            taxPayer.Email = "issahthabit@gmail.com";
 
-            //Response.Headers.Add("Accept", "application/json");
-            //Response.Headers.Add("Content-type", "application/json");
-            //Response.Headers.Add("candidateid", "issahthabit@gmail.com");
-            //Response.Headers.Add("apikey", "3fdb48c5-336b-47f9-87e4-ae73b8036a1c");
-            //request.AddJsonBody(user);
+            IRestClient Rclient = new RestClient();
+            Uri baseUrl = new Uri("https://www.mra.mw");
+            RestRequest Rrequest = new RestRequest("post", Method.POST) { Credentials = new NetworkCredential(users, pwd) };
+            Rclient.BaseUrl = baseUrl;
+            Rrequest.Resource = "/sandbox/programming/challenge/webservice/auth/logout";
+            Rrequest.Parameters.Clear();
+            Rrequest.AddHeader("Content-Type", "application/json; charset=utf-8");
+            Rrequest.AddHeader("candidateid", "issahthabit@gmail.com");
+            Rrequest.AddHeader("apikey", "3fdb48c5-336b-47f9-87e4-ae73b8036a1c");
+            Rrequest.AddJsonBody(taxPayer);
 
-            //IRestResponse<List<String>> response = client.Execute<List<String>>(request);
+            IRestResponse<TaxPayer> Rresponse = Rclient.Execute<TaxPayer>(Rrequest);
 
-            //string result = response.Content;
-
-            //var logD = JsonConvert.DeserializeObject<LoginDetails>(result);
-
-            //if (logD.Authenticated==false)
-            //{
-            //    Response.Redirect("~/Signin.aspx");
-            //}
+            if (Rresponse.StatusCode == HttpStatusCode.OK)
+            {
+                Response.Redirect("~/Signin.aspx");
+            }
         }
     }
 }

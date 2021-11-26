@@ -83,7 +83,7 @@ namespace MRA
                 }
                 catch (Exception ex)
                 {
-                    MSGLabel.Text = "Failed to create Record " + ex;
+                    MSGLabel.Text = "Failed to Update Record " + ex;
                 }
         }
     }

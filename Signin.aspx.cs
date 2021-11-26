@@ -57,9 +57,6 @@ namespace MRA
                 msgLabel.ForeColor = System.Drawing.Color.Red;
                 msgLabel.Text = "Invalid Login credentials";
             }
-
-            //Session["email"] = txtemail.Value;
-            //Session["password"] = txtpassword.Value;
         }
     }
 }
