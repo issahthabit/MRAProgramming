@@ -17,18 +17,18 @@
                     <div class="col-lg-12">
                         <div class="form-group">
                             <label>TPIN</label> 
-                            <input class="form-control" id="tpin" runat="server">
+                            <input class="form-control" id="tpin" runat="server" type="text">
                             <asp:RequiredFieldValidator ControlToValidate="tpin" runat="server" ErrorMessage="TPIN cannot be empty" ForeColor="Red" />
                         </div>
                         <div class="form-group">
                             <label>Business CertificateNumber:</label>
-                            <input class="form-control" id="BusinessCertificateNumber" runat="server">
+                            <input class="form-control" id="BusinessCertificateNumber" runat="server" type="text">
                             <asp:RequiredFieldValidator ID="RequiredFieldValidatorBCN" ControlToValidate="BusinessCertificateNumber" ForeColor="Red" runat="server" 
                                 ErrorMessage="Business Certificate Number can not be empty" />
                         </div>
                         <div class="form-group">
                             <label>Trading Name:</label>
-                            <input class="form-control" id="TradingName" runat="server">
+                            <input class="form-control" id="TradingName" runat="server" type="text">
                             <asp:RequiredFieldValidator ID="RequiredFieldValidatorTN" ControlToValidate="TradingName" ForeColor="Red" runat="server" 
                                 ErrorMessage="Business Certificate Number can not be empty" />
                         </div>
@@ -40,26 +40,26 @@
                         </div>
                         <div class="form-group">
                             <label>Mobile Number:</label>
-                            <input class="form-control" id="MobileNumber" runat="server">
+                            <input class="form-control" id="MobileNumber" runat="server" type="number">
                             <asp:RequiredFieldValidator ID="RequiredFieldValidatormobile" ControlToValidate="MobileNumber" ForeColor="Red" runat="server" 
                                 ErrorMessage="Mobile Number can not be empty" />
 
                         </div>
                         <div class="form-group">
                             <label>Email:</label>
-                            <input class="form-control" id="Email" runat="server">
+                            <input class="form-control" id="Email" runat="server" type="email">
                             <asp:RequiredFieldValidator ID="RequiredFieldValidatoremail" ControlToValidate="Email" ForeColor="Red" runat="server" 
                                 ErrorMessage="Email can not be empty" />
                         </div>
                         <div class="form-group">
                             <label>Pysical Location</label>
-                            <input class="form-control" id="phyiscallocation" runat="server">
+                            <input class="form-control" id="phyiscallocation" runat="server" type="text">
                             <asp:RequiredFieldValidator ID="RequiredFieldValidatorpl" ControlToValidate="phyiscallocation" ForeColor="Red" runat="server" 
                                 ErrorMessage="Pysical Location can not be empty" />
                         </div>
                         <div class="form-group">
                             <label>Username</label>
-                            <input class="form-control" id="username" runat="server">
+                            <input class="form-control" id="username" runat="server" type="text">
                             <asp:RequiredFieldValidator ID="RequiredFieldValidatorUsername" ControlToValidate="username" ForeColor="Red" runat="server" 
                                 ErrorMessage="Username can not be empty" />
                         </div>
