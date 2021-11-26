@@ -17,50 +17,7 @@ namespace MRA
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(!IsPostBack)
-            {
-                //User user = new User();
-                //user.Password = Request.QueryString["password"];
-                //user.Email = Request.QueryString["email"];
-               
-
-                RestClient client = new RestClient(" https://www.mra.mw/sandbox/programming/challenge/webservice/auth/login");
-                RestRequest request = new RestRequest(Method.POST);
-
-                Response.Headers.Add("Accept", "application/json");
-                Response.Headers.Add("Content-type", "application/json");
-                Response.Headers.Add("candidateid", "issahthabit@gmail.com");
-                Response.Headers.Add("apikey", "3fdb48c5-336b-47f9-87e4-ae73b8036a1c");
-                //request.AddJsonBody(user);
-
-                IRestResponse<List<String>> response = client.Execute<List<String>>(request);
-
-                string result = response.Content;
-
-                var logD = JsonConvert.DeserializeObject<LoginDetails>(result);
-            }
-        }
-        void Get_UserAuthentification()
-        {
-            User user = new User();
-            user.Password = Request.QueryString["password"];
-            user.Email = Request.QueryString["email"];
-
-            RestClient client = new RestClient(" https://www.mra.mw/sandbox/programming/challenge/webservice/auth/login");
-            RestRequest request = new RestRequest(Method.POST);
-
-            Response.Headers.Add("Accept", "application/json");
-            Response.Headers.Add("Content-type", "application/json");
-            Response.Headers.Add("candidateid", "issahthabit@gmail.com");
-            Response.Headers.Add("apikey", "3fdb48c5-336b-47f9-87e4-ae73b8036a1c");
-            request.AddJsonBody(user);
-
-            IRestResponse<List<String>> response = client.Execute<List<String>>(request);
-
-            string result = response.Content;
-
-            var logD = JsonConvert.DeserializeObject<LoginDetails>(result);
-
+            
         }
         [Authorize]
         protected void btnSubmit_Click(object sender, EventArgs e)

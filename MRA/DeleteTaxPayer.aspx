@@ -8,7 +8,7 @@
         <div class="col-lg-12">
         <div class="panel panel-default">
             <div class="panel-heading">
-                Updating Tax payers details
+                Delete Tax payers details
             </div>
             <div class="panel-body">
                 <div class="row">

@@ -19,18 +19,16 @@ namespace MRA
         }
         void DeleteDetails()
         {
+            string users = UserAuth.user, pwd=UserAuth.pass;
             if (Page.IsValid)
             {
-
-                //TaxPayer taxPayer = new TaxPayer();
-
                 DeleteTaxPayers Dpayer = new DeleteTaxPayers();
                 Dpayer.TPIN = tpin.Value;
 
-                IRestClient Rclient = new RestClient(); // "https://www.mra.mw/sandbox/programming/challenge/webservice/Taxpayers/delete");
+                IRestClient Rclient = new RestClient();
                 Uri baseUrl = new Uri("https://www.mra.mw");
 
-                RestRequest Rrequest = new RestRequest("post", Method.POST) { Credentials = new NetworkCredential("issahthabit@gmail.com", "password000122") };
+                RestRequest Rrequest = new RestRequest("post", Method.POST) { Credentials = new NetworkCredential(users, pwd) };
 
 
                 Rclient.BaseUrl = baseUrl;
@@ -53,29 +51,24 @@ namespace MRA
 
                     if (Rresponse.StatusCode == HttpStatusCode.OK)
                     {
+                        string Result = Rresponse.Content;
 
+                        var data = JsonConvert.DeserializeObject<TaxPayer>(Result);
+
+                        MSGLabel.Text = "Record has been Deleted successfully";
+
+                        BusinessCertificateNumber.Value = string.Empty;
+                        TradingName.Value = string.Empty;
+                        BusinessRegistrationDate.Value = string.Empty;
+                        MobileNumber.Value = string.Empty;
+                        Email.Value = string.Empty;
+                        phyiscallocation.Value = string.Empty;
+                        username.Value = string.Empty;
                     }
                     else
                     {
-
+                        MSGLabel.Text = "Failed to Delete Taxpayer";
                     }
-
-                    string Result = Rresponse.Content;
-
-                    var data = JsonConvert.DeserializeObject<TaxPayer>(Result);
-
-                    MSGLabel.Text = "Record has been Deleted successfully";
-
-                    //tpin.Value = string.Empty;
-                    BusinessCertificateNumber.Value = string.Empty;
-                    TradingName.Value = string.Empty;
-                    BusinessRegistrationDate.Value = string.Empty;
-                    MobileNumber.Value = string.Empty;
-                    Email.Value = string.Empty;
-                    phyiscallocation.Value = string.Empty;
-                    username.Value = string.Empty;
-
-
                 }
                 catch (Exception ex)
                 {
