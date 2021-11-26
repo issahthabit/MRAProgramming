@@ -44,7 +44,7 @@ namespace MRA
         [Authorize]
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-            User user = new User();
+            
             string users = UserAuth.user, pwd=UserAuth.pass;
 
             if (Page.IsValid)

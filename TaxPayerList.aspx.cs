@@ -18,40 +18,15 @@ namespace MRA
         {
 
         }
-        void Display_Tax_Payer_List()
-        {
-            RestClient client = new RestClient("https://www.mra.mw/sandbox/programming/challenge/webservice/Taxpayers/getAll");
-            RestRequest request = new RestRequest(Method.GET);
-            
-
-            //Response.Headers.Add("Accept", "application/json");
-            //Response.Headers.Add("Content-type", "application/json");
-            //Response.Headers.Add("candidateid", "issahthabit@gmail.com");
-            //Response.Headers.Add("apikey", "3fdb48c5-336b-47f9-87e4-ae73b8036a1c");
-
-            try
-            {
-                IRestResponse<List<String>> response = client.Execute<List<String>>(request);
-
-                string card = response.Content;
-
-                DataTable dt = (DataTable)JsonConvert.DeserializeObject(card, (typeof(DataTable)));
-                Gridview1.DataSource = dt;
-                Gridview1.DataBind();
-            }
-            catch(Exception ex)
-            {
-                MsgLabel.Text = "Error" + ex;
-            }
-        }
+        
 
         protected void btnViewTaxPayers_Click(object sender, EventArgs e)
         {
-
+            string users = UserAuth.user, pwd=UserAuth.pass;
             IRestClient Rclient = new RestClient(); // "https://www.mra.mw/sandbox/programming/challenge/webservice/Taxpayers/add");
             Uri baseUrl = new Uri("https://www.mra.mw");
 
-            RestRequest Rrequest = new RestRequest("get", Method.GET) { Credentials = new NetworkCredential("issahthabit@gmail.com", "password000122") };
+            RestRequest Rrequest = new RestRequest("get", Method.GET) { Credentials = new NetworkCredential(users, pwd) };
 
             Rclient.BaseUrl = baseUrl;
             Rrequest.Resource = "/programming/challenge/webservice/Taxpayers/getAll";
@@ -66,6 +41,10 @@ namespace MRA
             IRestResponse<TaxPayer> Rresponse = Rclient.Execute<TaxPayer>(Rrequest);
 
             string result = Rresponse.Content;
+
+            DataTable dt = (DataTable)JsonConvert.DeserializeObject(result, (typeof(DataTable)));
+            Gridview1.DataSource = dt;
+            Gridview1.DataBind();
 
             MsgLabel.Text = result;
 

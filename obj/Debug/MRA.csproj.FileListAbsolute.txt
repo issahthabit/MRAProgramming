@@ -119,3 +119,5 @@ C:\Users\ISSAH\source\repos\MRA\MRA\bin\System.Text.Json.xml
 C:\Users\ISSAH\source\repos\MRA\MRA\bin\System.Threading.Tasks.Extensions.xml
 C:\Users\ISSAH\source\repos\MRA\MRA\bin\System.ValueTuple.xml
 C:\Users\ISSAH\source\repos\MRA\MRA\obj\Debug\MRA.csproj.AssemblyReference.cache
+D:\MRAProgramming\obj\Debug\MRA.dll
+D:\MRAProgramming\obj\Debug\MRA.pdb
