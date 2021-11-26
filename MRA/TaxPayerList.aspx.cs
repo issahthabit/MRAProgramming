@@ -9,6 +9,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using MRA.Models;
 using System.Net;
+using System.IO;
 
 namespace MRA
 {
@@ -21,6 +22,7 @@ namespace MRA
 
         protected void btnViewTaxPayers_Click(object sender, EventArgs e)
         {
+            TaxPayer taxPayer = new TaxPayer();
             string users = UserAuth.user, pwd = UserAuth.pass;
             IRestClient Rclient = new RestClient();
             Uri baseUrl = new Uri("https://www.mra.mw");
@@ -30,6 +32,7 @@ namespace MRA
             Rclient.BaseUrl = baseUrl;
             Rrequest.Resource = "/programming/challenge/webservice/Taxpayers/getAll";
 
+            
 
             Rrequest.Parameters.Clear();
 
@@ -38,12 +41,24 @@ namespace MRA
             Rrequest.AddHeader("apikey", "3fdb48c5-336b-47f9-87e4-ae73b8036a1c");
 
             //IRestResponse<TaxPayer> Rresponse = Rclient.Execute<TaxPayer>(Rrequest);
-            IRestResponse Rresult = Rclient.Execute<List<TaxPayer>>(Rrequest);
+            //IRestResponse Rresult = Rclient.Execute<List<TaxPayer>>(Rrequest);
 
-            string result= Rresult.Content;
+            //string result= Rresult.Content;
 
-            DataTable dt = (DataTable)JsonConvert.DeserializeObject(result, (typeof(DataTable)));
-            Gridview1.DataSource = dt;
+
+            //var url = "https://www.mra.mw/programming/challenge/webservice/Taxpayers/getAll";
+
+            //var httpRequest = (HttpWebRequest)WebRequest.Create(url);
+
+            //httpRequest.Accept = "*/*";
+
+            //var httpResponse = (HttpWebResponse)httpRequest.GetResponse();
+            //using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
+            //{
+            //    var Rresults = streamReader.ReadToEnd();
+            //}
+            //DataTable dt = (DataTable)JsonConvert.DeserializeObject(result, (typeof(DataTable)));
+            //Gridview1.DataSource = dt;
             Gridview1.DataBind();
             //MsgLabel.Text = result;
         }
